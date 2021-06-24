@@ -1,5 +1,7 @@
 package Membros;
 
+import Sistema.Sistema;
+
 public class MobileMembers extends Membro {
     /*
     Variaveis Especificas Da Classe Filha MobileMembers.
