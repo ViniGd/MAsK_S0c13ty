@@ -1,5 +1,7 @@
 package Membros;
 
+import Sistema.Sistema;
+
 public abstract class Membro implements PostarMensagem{
     /*
     Variaveis Nome, Email e TipoDeMembro variam por usuário.
