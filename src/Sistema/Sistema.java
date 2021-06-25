@@ -5,5 +5,7 @@ import Membros.TiposDeHorario;
 public class Sistema {
     public TiposDeHorario TipoDeHorario;
 
-    public void PostarMensagem(String Mensagem) {}
+    public void PostarMensagem(String Mensagem) {
+
+    }
 }

@@ -9,6 +9,7 @@ public abstract class Membro implements PostarMensagem{
     private String Nome;
     private String Email;
     private TiposDeMembros TipoDeMembro;
+    private String Senha;
 
     /*
     Variaveis AssinaturaNormal e AssinaturaExtras variam por TipoDeMembro.
@@ -43,5 +44,19 @@ public abstract class Membro implements PostarMensagem{
         } else {
             return AssinaturaExtras;
         }
+    }
+    public boolean checarDadosDeUsuario(String email, String senha) {
+        return Membro.checarCredenciais(email, senha);
+    }
+    public boolean checarCredenciais(String email, String senha) {
+        if (this.Email.equals(email) && this.Senha.equals(senha)) {
+            return true;
+        } else {
+            System.out.println(MembroContas.credenciaisInvalidas);
+            return false;
+        }
+    }
+    public class MembroContas {
+        static String credenciaisInvalidas = "Credenciais Invalidas";
     }
 }
