@@ -46,17 +46,18 @@ public abstract class Membro implements PostarMensagem{
         }
     }
     public boolean checarDadosDeUsuario(String email, String senha) {
-        return Membro.checarCredenciais(email, senha);
+        return this.checarCredenciais(email, senha);
     }
     public boolean checarCredenciais(String email, String senha) {
         if (this.Email.equals(email) && this.Senha.equals(senha)) {
             return true;
         } else {
-            System.out.println(MembroContas.credenciaisInvalidas);
+            System.out.println("Credenciais Invalidas");
             return false;
         }
     }
-    public class MembroContas {
-        static String credenciaisInvalidas = "Credenciais Invalidas";
+
+    public TiposDeMembros getTipoDeMembro() {
+        return TipoDeMembro;
     }
 }

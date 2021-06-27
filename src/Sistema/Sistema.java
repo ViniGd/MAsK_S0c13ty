@@ -1,11 +1,18 @@
 package Sistema;
 
 import Membros.TiposDeHorario;
+import Membros.TiposDeMembros;
 
 public class Sistema {
-    public TiposDeHorario TipoDeHorario;
+    private TiposDeHorario TipoDeHorario;
 
-    public void PostarMensagem(String Mensagem) {
+    public void PostarMensagem() {
 
     }
+
+    public TiposDeHorario getTipoDeHorario() {
+        return TipoDeHorario;
+    }
+
+
 }

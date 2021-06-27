@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static TiposDeMembros tiposDeMembros;
+
     public static void main(String[] args) {
 	// write your code here
         Scanner menuInput = new Scanner(System.in);
@@ -40,24 +42,42 @@ public class Main {
                             menuMembro(membroTemp);
                             escolhaMenuMembro = menuInput.nextInt();
                             menuInput.nextLine();
-
+                            Membro membrologado;
                             switch (escolhaMenuMembro){
                                 case 1:
                                     Sistema Sistema = new Sistema();
-                                    Sistema.PostarMensagem();
+                                    Sistema.PostarMensagem(); // lembrar de colocar a msg
 
                                     break;
 
                                 case 2:
-                                    Sistema Sistema = new Sistema();
-                                    Sistema.TipoDeHorario();
+                                    Sistema sistema = new Sistema();
+                                    sistema.getTipoDeHorario();
 
                                     break;
 
                                 case 3:
-                                    System.out.println("Ate mais amigo");
+                                    if(membrologado.getTipoDeMembro() == TiposDeMembros.BigBrothers){
+                                        dadosTemps = menuCadastrar(menuInput);
+                                        email = dadosTemps[0];
+                                        senha = dadosTemps[1];
+                                        nome = dadosTemps[2];
+                                        tiposDeMembros = dadosTemps[3];
+
+                                        membros.add(new Membro(nome, senha, email, tiposDeMembros));
+                                        System.out.println("Voce foi cadastrado, agora so fazer login meu rei");
+                                        System.out.print("Precione enter para voltar");
+                                        menuInput.nextLine();
+                                    }
+                                    else
+                                        System.out.println("Ate mais amigo");
                                     break;
 
+                                case 4:
+                                    if(membrologado.getTipoDeMembro() == TiposDeMembros.BigBrothers){
+                                        System.out.println("Ate mais amigo");
+                                        break;
+                                    }
                                 default:
                                     System.out.println("Eu não to te entendendo");
                                     System.out.print("Precione enter para voltar");
@@ -68,17 +88,8 @@ public class Main {
                 }
 
 
-                case 2 -> { // Caso 2 realiza o cadastro de um novo membro
-                    dadosTemps = menuCadastrar(menuInput);
-                    email = dadosTemps[0];
-                    senha = dadosTemps[1];
-                    nome = dadosTemps[2];
-                    TiposDeMembros = dadosTemps[3];
-
-                    membros.add(new Membro(nome, senha, email, TiposDeMembros));
-                    System.out.println("Voce foi cadastrado, agora so fazer login meu rei");
-                    System.out.print("Precione enter para voltar");
-                    menuInput.nextLine();
+                case 2 -> {// Saindo do sistema
+                    System.out.println("Ate mais amigo");
                     break;
                 }
             }
@@ -89,7 +100,7 @@ public class Main {
     private static void menuInicial(){
         // Menu inicial do programa
         System.out.println("Seja bem vindo.\n" +
-                "Deseja fazer login ou se cadastrar?\n" +
+                "Deseja fazer login?\n" +
                 "1- Login\n" +
                 "2- Finalizar");
 
@@ -148,8 +159,14 @@ public class Main {
                         "Seja Bem Vindo " + membro.Nome() + "\n" +
                         "Voce esta em seu Horario " + Sistema.TipoDeHorario + "\n" +
                         "1 - Postar mensagem\n" +
-                        "2 - Trocar Horario\n" +
-                        "3 - Voltar ao menu inicial"
+                        "2 - Trocar Horario" );
+        int indexmenu = 3;
+        if(membro.getTipoDeMembro() == TiposDeMembros.BigBrothers){
+            System.out.println("3 - Cadastrar membro");
+            indexmenu ++;
+        }
+        System.out.println(
+                        indexmenu + " - Voltar ao menu inicial"
         );
     }
 
