@@ -13,13 +13,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static TiposDeMembros tiposDeMembros;
+
 
     public static void main(String[] args) {
 	// write your code here
         Scanner menuInput = new Scanner(System.in);
         int escolhaMenuInicial;
         int escolhaMenuMembro;
+        TiposDeMembros tiposDeMembros;
         List<Membro> membros = new ArrayList<Membro>();
         String[] dadosTemps;
         String email,senha,nome;
@@ -57,17 +58,22 @@ public class Main {
                                     break;
 
                                 case 3:
+
                                     if(membrologado.getTipoDeMembro() == TiposDeMembros.BigBrothers){
+                                        /*
+
                                         dadosTemps = menuCadastrar(menuInput);
                                         email = dadosTemps[0];
                                         senha = dadosTemps[1];
                                         nome = dadosTemps[2];
                                         tiposDeMembros = dadosTemps[3];
 
-                                        membros.add(new Membro(nome, senha, email, tiposDeMembros));
+                                        membros.add(new Membro(nome, email,senha, tiposDeMembros));
                                         System.out.println("Voce foi cadastrado, agora so fazer login meu rei");
                                         System.out.print("Precione enter para voltar");
                                         menuInput.nextLine();
+
+                                         */
                                     }
                                     else
                                         System.out.println("Ate mais amigo");
@@ -93,7 +99,7 @@ public class Main {
                     break;
                 }
             }
-        }while(escolhaMenuInicial = 2);
+        }while(escolhaMenuInicial == 2);
 
 
     }

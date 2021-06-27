@@ -8,8 +8,9 @@ public abstract class Membro implements PostarMensagem{
      */
     private String Nome;
     private String Email;
-    private TiposDeMembros TipoDeMembro;
     private String Senha;
+    private TiposDeMembros TipoDeMembro;
+
 
     /*
     Variaveis AssinaturaNormal e AssinaturaExtras variam por TipoDeMembro.
@@ -20,9 +21,10 @@ public abstract class Membro implements PostarMensagem{
     /*
     Construtor Que Inicia As Variaveis Nome, Email e TipoDeMembro.
      */
-    public Membro(String Nome,String Email,TiposDeMembros TipoDeMembro) {
+    public Membro(String Nome,String Email,String Senha,TiposDeMembros TipoDeMembro) {
         this.Nome = Nome;
         this.Email = Email;
+        this.Senha = Senha;
         this.TipoDeMembro = TipoDeMembro;
     }
 
@@ -39,7 +41,7 @@ public abstract class Membro implements PostarMensagem{
     Função Checa Qual É O Tipo De Horário Do Sistema E Escolhe Qual Assinatura Deve Ser Usada.
      */
     private String AssinaturaAUsar(Sistema Sis) {
-        if(Sis.TipoDeHorario == TiposDeHorario.Normal) {
+        if(Sis.getTipoDeHorario() == TiposDeHorario.Normal) {
             return AssinaturaNormal;
         } else {
             return AssinaturaExtras;

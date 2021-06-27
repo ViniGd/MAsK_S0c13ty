@@ -17,5 +17,8 @@ public class BigBrothers extends Membro {
     public void PostarMensagem() {
 
     }
+    public void CadastrarMembro(Membro membro){
+
+    }
 
 }
