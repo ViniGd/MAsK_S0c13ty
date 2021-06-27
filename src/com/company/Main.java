@@ -81,16 +81,8 @@ public class Main {
                     menuInput.nextLine();
                     break;
                 }
-                case 3 -> {
-                    menuAdmin(membros);
-
-                    System.out.print("Precione enter para voltar:");
-                    menuInput.nextLine();
-                    break;
-                }
-
             }
-        }while(escolhaMenuInicial = 3);
+        }while(escolhaMenuInicial = 2);
 
 
     }
@@ -99,7 +91,7 @@ public class Main {
         System.out.println("Seja bem vindo.\n" +
                 "Deseja fazer login ou se cadastrar?\n" +
                 "1- Login\n" +
-                "2- Cadastrar");
+                "2- Finalizar");
 
     }
 
@@ -161,11 +153,4 @@ public class Main {
         );
     }
 
-    private static void menuAdmin(List<Membro> contas) {
-        System.out.println(
-                "============\n" +
-                        "Dados dos Usuarios:\n" +
-                        "Nome:\tID:\tSaldo:\tEmail:"
-        );
 
-}
